@@ -1,0 +1,340 @@
+.ws-mycart-total {
+
+  //flex up the cart totals btn on the cart page
+  @include display(flex);
+  @include flex-direction(column);
+
+}
+
+//update cart btn on cart page 
+
+.ws-update-cart {
+
+  @include display(flex);
+
+  input {
+
+    @include flex(0 em(255px));
+  padding-left: ms(2);
+  padding-right: ms(2);
+  
+  }
+
+
+
+}
+
+
+
+.woocommerce-message, .woocommerce-error {
+  //@include order(2) 
+  border-top: 3px solid $primary_purple;
+  margin-bottom: ms(0)!important;
+  @include flex(1 100%);
+  &:before {
+    color: $primary_purple;
+  }
+}
+
+//add some padding on the top of checkout and cart pages 
+.ws-checkout-content, 
+.woocommerce-cart .woocommerce {
+
+  padding-top: ms(0);
+
+}
+
+
+//woocommerce single product
+.main_single_prod .product {
+
+  padding-top: ms(0);
+
+      @include media($tablet_portrait_up) {
+
+	@include display(flex);
+
+      }
+  background-color: $white;
+
+    .images {
+    
+      @include flex(1 50%);
+      padding: ms(0);
+      padding-top: 0;
+    
+    } 
+
+
+    .summary {
+    
+      padding: ms(0);
+      padding-top: 0;
+      @include flex(1 50%);
+      @include flex-direction(column);
+    
+    }
+
+}
+
+h1.entry-title, h1.page-title {
+  text-transform: capitalize;
+}
+
+//variation pages increment
+.entry-summary .woocommerce-variation-add-to-cart{
+  @include display(flex);
+}
+
+.woocommerce-page {
+
+  //general 
+  .quantity {
+
+    //border: 3px solid red;
+    @include flex(0 em( 200px ));
+    @include display(flex);
+    min-height: ms(2);
+    //quantity inport
+    input {
+      position: static!important;
+      height: auto!important;
+      @include flex(1 em(150px));
+      //need this for firefox
+      max-width: 60px
+    }
+
+    .plus, .minus {
+    
+      border-bottom: 1px solid $border;
+      line-height: 13px;
+      font-size: 15px;
+      @include flex(1 em( 50px ));
+      //need this for firefox
+      min-width: 50px
+    
+    }
+
+    .minus {
+      border-right: 0 none;
+      border-radius: $radius;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .plus {
+      border-left: 1px solid $border;
+      border-radius: $radius;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }//quantity general 
+
+  //variation only classes 
+  .woocommerce-variation-add-to-cart {
+	@include flex(1);
+  }
+
+  //in stock amount
+
+
+    .woocommerce-variation {
+	@include flex(0 em( 80px ));
+    }
+}
+
+  form.cart button.single_add_to_cart_button {
+    @include flex(0 em(150px));
+    margin-right: ms(1);
+    @extend %cta_btn;
+    background-color: $primary_purple!important;
+  }
+
+
+		//single product add to cart form
+		.single-product.woocommerce form.cart {
+		  margin-bottom: ms(0)!important;
+		  @include display(flex);
+		  @include flex-wrap(wrap);
+		  @include order(1);
+		  
+
+		  table.variations {
+		    @include flex(1 em( 500px ));
+		    margin-bottom: 0;
+		    padding-bottom: 0;
+
+		    td {
+		      line-height: ms(0);
+		    }
+
+		    td.label {
+		      width: 66px;
+		      padding-bottom: ms(0);
+		      padding-right: 0;
+
+		      label {
+			font-family: $sans_serif;
+		      }
+		    }
+
+		    td.value select {
+
+		      width: auto;
+		      //max-width: 100px;
+		      min-width: auto;
+		    
+		    }
+		  }
+
+		  .single_variation_wrap {
+		  
+		    @include flex(1 em(200px));
+		    //@include display(flex);
+		    @include flex-wrap(wrap);
+
+		    //display instock message on own line
+		    .single_variation {
+		      //@include flex(1 em( 500px ))
+		      width: 100%;
+		      display: block;
+		    }
+		  }
+		} //single product add to cart
+
+
+		//does not work table still overflowing
+		//.shop_table {
+		
+		  //overflow: hidden;
+		  //table-layout: fixed;
+
+		//}
+
+		//paypal credit card img overide the full width images
+.woocommerce .woocommerce-checkout #payment ul.payment_methods li label img {
+
+  width: auto;
+
+}
+
+//remove the clear selection button on variable products
+.woocommerce div.product form.cart a.reset_variations {
+    display: none!important;
+}
+.content_panel .woocommerce-breadcrumb {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  padding: $cell_padding;
+  font-family: $secondary_font;
+}
+
+
+
+.page-title {
+
+  @include media($tablet_portrait_down) {
+
+    padding-left: ms(-3);
+  }
+
+}
+
+
+//restrict the overall width like the rest of the site
+#content {
+  @include outer-container(77vw);
+}//header, footer, boxed_content
+
+
+
+.upsells {
+
+  text-align: center;
+
+}
+
+.cart_contents .item_count {
+  background-color: $secondary_purple;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  line-height: 27px;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  font-size: 12px;
+}
+
+//pagination to the right
+.archive.woocommerce nav.prdctfltr-pagination-default, p.woocommerce-result-count {
+  display: block;
+  @include site_max_width();
+  margin-left: auto!important;
+  margin-right: auto!important;
+  margin-top: $cell_padding;
+      text-align: center;
+    @include media($tablet_portrait_up) {
+      text-align: right!important;
+    }
+}
+
+nav.prdctfltr-pagination.prdctfltr-pagination-default ul li {
+
+  @extend %pagination;
+
+}
+
+nav.prdctfltr-pagination.prdctfltr-pagination-default {
+  ul.page-numbers {
+
+    @include media($tablet_portrait_down) {
+      @include display(flex);
+      @include flex-wrap(wrap);
+      @include justify-content(center);
+      li {
+	@include flex(0 em(36px));
+	a, .current, .dots {
+	  padding: 6px;
+	}
+      }
+    }
+  }
+}
+
+.content_panel .prdctfltr_wc {
+
+  margin-bottom: 0;
+}
+
+.content_panel p.woocommerce-result-count {
+
+  padding-bottom: ms(0);
+  font-size: em(12px);
+  font-family: $secondary_font;
+
+}
+
+
+nav.woocommerce-pagination {
+  a { color: $primary_purple; }
+  padding-top: ms(0);
+  //pagination at the bottom
+  &:last-of-type {
+    padding-top: 0;
+    padding-bottom: ms(0);
+  }
+}
+
+//sorting to the left
+.woocommerce .woocommerce-ordering, .woocommerce-page .woocommerce-ordering {
+  float: none;
+}
+
+//result count to the right
+.woocommerce .woocommerce-result-count, 
+.woocommerce-page .woocommerce-result-counta {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
